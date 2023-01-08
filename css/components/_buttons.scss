@@ -1,0 +1,17 @@
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    background-color: $Very-light-gray;
+    border-radius: 25px;
+    font-size: rem(15);
+    
+    &:hover {
+        background-color: transparent;
+        border: 2px solid $Very-light-gray;
+        color: $Very-light-gray;
+        transition: background-color 200ms;
+    }
+}

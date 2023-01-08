@@ -1,0 +1,17 @@
+$card-size: clamp(250px, 25%, 300px);
+
+$base-font-size: 16px;
+
+$main-font: 'Lexend Deca';
+$heading-font: 'Big Shoulders Display';
+
+// first card
+$bright-orange: hsl(31, 77%, 52%);
+// middle card
+$Dark-cyan: hsl(184, 100%, 22%);
+// end card
+$Very-dark-cyan: hsl(179, 100%, 13%);
+// paragraphs
+$Transparent-white: hsla(0, 0%, 100%, 0.75);
+// background, headings, buttons
+$Very-light-gray: hsl(0, 0%, 95%);

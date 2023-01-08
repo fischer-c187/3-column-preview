@@ -1,0 +1,28 @@
+html {
+    height: 100%;
+    font-size: $base-font-size;
+    background-color: $Very-light-gray;
+    font-family: $main-font;
+    animation: apparition 2s ease-out;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 375px) {
+        align-items: flex-start;
+    }
+    
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

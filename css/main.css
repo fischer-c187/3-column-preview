@@ -1,0 +1,284 @@
+@charset "UTF-8";
+/***
+    The new CSS reset - version 1.8.2 (last updated 23.12.2022)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap");
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+  -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  -moz-appearance: revert;
+       appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+pre {
+  all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::-moz-placeholder {
+  color: unset;
+}
+:-ms-input-placeholder {
+  color: unset;
+}
+::placeholder {
+  color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+  content: "";
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+  all: revert;
+}
+
+html {
+  height: 100%;
+  font-size: 16px;
+  background-color: hsl(0deg, 0%, 95%);
+  font-family: "Lexend Deca";
+  -webkit-animation: apparition 2s ease-out;
+          animation: apparition 2s ease-out;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 375px) {
+  body {
+    align-items: flex-start;
+  }
+}
+
+@-webkit-keyframes apparition {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes apparition {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.page-wrapper {
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 375px) {
+  .page-wrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 50px;
+  background-color: hsl(0deg, 0%, 95%);
+  border-radius: 25px;
+  font-size: 0.9375rem;
+}
+.button:hover {
+  background-color: transparent;
+  border: 2px solid hsl(0deg, 0%, 95%);
+  color: hsl(0deg, 0%, 95%);
+  transition: background-color 200ms;
+}
+
+.card {
+  width: clamp(250px, 25%, 300px);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 25px;
+}
+@media (max-width: 375px) {
+  .card {
+    width: 100%;
+  }
+}
+.card__logo {
+  width: 64px;
+  height: auto;
+}
+.card__title {
+  font-size: 2.5rem;
+  color: hsl(0deg, 0%, 95%);
+  font-family: "Big Shoulders Display";
+}
+.card__description {
+  color: hsla(0deg, 0%, 100%, 0.75);
+  font-size: 0.9375rem;
+  line-height: 1.5625rem;
+  font-family: "Lexend Deca";
+  margin-bottom: 50%;
+}
+
+.card:nth-child(1) {
+  background-color: hsl(31deg, 77%, 52%);
+  box-sizing: border-box;
+  border-radius: 8px 0 0 8px;
+  -webkit-animation: to-left 2500ms ease-in;
+          animation: to-left 2500ms ease-in;
+}
+@media (max-width: 375px) {
+  .card:nth-child(1) {
+    -webkit-animation: none;
+            animation: none;
+    border-radius: 0;
+  }
+}
+
+.card:nth-child(2) {
+  background-color: hsl(184deg, 100%, 22%);
+  z-index: 1000;
+}
+
+.card:nth-child(3) {
+  background-color: hsl(179deg, 100%, 13%);
+  border-radius: 0 8px 8px 0;
+  -webkit-animation: to-right 2500ms ease-in;
+          animation: to-right 2500ms ease-in;
+}
+@media (max-width: 375px) {
+  .card:nth-child(3) {
+    -webkit-animation: none;
+            animation: none;
+    border-radius: 0;
+  }
+}
+
+@-webkit-keyframes to-left {
+  from {
+    transform: translateX(calc(50px + clamp(250px, 25%, 300px)));
+  }
+  50% {
+    transform: translateX(calc(50px + clamp(250px, 25%, 300px)));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes to-left {
+  from {
+    transform: translateX(calc(50px + clamp(250px, 25%, 300px)));
+  }
+  50% {
+    transform: translateX(calc(50px + clamp(250px, 25%, 300px)));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes to-right {
+  0% {
+    transform: translateX(calc(-50px + -1 * clamp(250px, 25%, 300px)));
+  }
+  50% {
+    transform: translateX(calc(-50px + -1 * clamp(250px, 25%, 300px)));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes to-right {
+  0% {
+    transform: translateX(calc(-50px + -1 * clamp(250px, 25%, 300px)));
+  }
+  50% {
+    transform: translateX(calc(-50px + -1 * clamp(250px, 25%, 300px)));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}/*# sourceMappingURL=main.css.map */
